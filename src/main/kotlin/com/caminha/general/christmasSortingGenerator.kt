@@ -16,18 +16,25 @@ fun main() {
     val result = hashMapOf<String, Int>()
 
     val list = mutableListOf("caio", "mariana", "rita", "joseni", "julia")
+    val strings = mutableListOf<String>()
     val n = list.size
 
     var x = (1..n).toMutableList()
 
 
+    //looping here
     for(name in list) {
-        result[name] = x.random().also {current ->
-            x.remove(current)
-        }
+        //random is O(1) and remove is O(1)
+        strings.add(
+            "$name -> ${
+                x.random().also {current ->
+                    x.remove(current)
+                }
+            }"
+        )
     }
 
-    result.forEach {
-        println("${it.key} -> ${it.value}")
-    }
+    print(strings.joinToString(", "))
+    // solution above ^ it's O(2 * n) == O(n)
+
 }
