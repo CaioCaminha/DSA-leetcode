@@ -1,30 +1,16 @@
-import java.util.Random
+import kotlin.random.Random
 
 
 //20 pessoas -> gerar 20 números aleatórios e assign one for each one of the people
-fun generate() {
+fun generate1(names: List<String>) {
     //given a list of 20 names -> assign random numbers from 1 to 20 to each one of the names
-    //problem ->
-
-
-
-
-
-}
-
-fun main() {
-    val result = hashMapOf<String, Int>()
-
-    val list = mutableListOf("caio", "mariana", "rita", "joseni", "julia")
     val strings = mutableListOf<String>()
-    val n = list.size
 
-    var x = (1..n).toMutableList()
-
+    var x = (1..names.size).toMutableList()
 
     //looping here
-    for(name in list) {
-        //random is O(1) and remove is O(1)
+    for(name in names) {
+        //random is O(n) and remove is O(1)
         strings.add(
             "$name -> ${
                 x.random().also {current ->
@@ -35,6 +21,31 @@ fun main() {
     }
 
     print(strings.joinToString(", "))
-    // solution above ^ it's O(2 * n) == O(n)
+    // solution above ^ it's O(nˆ2)
+}
+
+
+fun generate2(names: List<String>) {
+    val possibleNumbers = (1..names.size).shuffled() // O(n)
+
+
+    //creates a mapping for index -> name
+    //O(n)
+    names.mapIndexed { index, s ->
+        println("""
+            $s -> ${
+            possibleNumbers[index]
+        }
+        """.trimIndent())
+    }
+
+    //the coding above it's O(n)
+}
+
+
+fun main() {
+
+    val names = mutableListOf("caio", "mariana", "rita", "joseni", "julia")
+    generate2(names)
 
 }
