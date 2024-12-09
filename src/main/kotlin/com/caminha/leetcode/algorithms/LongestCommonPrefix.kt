@@ -1,4 +1,4 @@
-package com.caminha.leetcode
+package com.caminha.leetcode.algorithms
 
 class LongestCommonPrefix {
 

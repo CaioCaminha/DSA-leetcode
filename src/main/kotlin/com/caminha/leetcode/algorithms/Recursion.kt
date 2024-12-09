@@ -1,6 +1,4 @@
-package com.caminha.leetcode
-
-import kotlin.time.times
+package com.caminha.leetcode.algorithms
 
 class Recursion {
     fun recursiveFactorial(n: Int): Int {
