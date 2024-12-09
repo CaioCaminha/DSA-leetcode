@@ -1,7 +1,7 @@
 import kotlin.random.Random
 
 
-//20 pessoas -> gerar 20 números aleatórios e assign one for each one of the people
+//20 pessoas -> gerar 20 números aleatórios e assign it for each one of the people
 fun generate1(names: List<String>) {
     //given a list of 20 names -> assign random numbers from 1 to 20 to each one of the names
     val strings = mutableListOf<String>()
@@ -39,13 +39,11 @@ fun generate2(names: List<String>) {
         """.trimIndent())
     }
 
-    //the coding above it's O(n)
+    //the coding above ^ it's O(n)
 }
 
 
 fun main() {
-
     val names = mutableListOf("caio", "mariana", "rita", "joseni", "julia")
     generate2(names)
-
 }
